@@ -1,0 +1,144 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons"
+import logo from "../assets/lemora-logo.svg"
+import Button from "./Button"
+import { PREMIUM_LINK } from "../lib/planes"
+
+const WHATSAPP_CONTACTO_LINK = "https://wa.me/543515957014"
+
+const explorarDefault = [
+  { label: "Funciones Premium", href: "#premium" },
+  { label: "Precio", href: "#precio" },
+  { label: "Cómo empezar", href: "#como-empezar" },
+  { label: "Preguntas frecuentes", href: "#faq" },
+]
+
+// Páginas pendientes — placeholder hasta que existan
+const legal = [
+  { label: "Términos", href: "#" },
+  { label: "Privacidad", href: "#" },
+]
+
+const EMAIL = "web.lemora@gmail.com"
+
+// TODO: sumar YouTube (faYoutube) cuando exista el canal de Lemora.
+const redes = [
+  { label: "Instagram", icon: faInstagram, href: "https://www.instagram.com/lemora.lat" },
+  { label: "TikTok", icon: faTiktok, href: "https://www.tiktok.com/@lemora.lat" },
+]
+
+const YEAR = new Date().getFullYear()
+
+const linkClass =
+  "rounded text-[15px] text-white/70 transition-colors hover:text-white focus-ring-light"
+
+function Column({ title, children }) {
+  return (
+    <div>
+      <h3 className="text-[13px] font-semibold uppercase tracking-[0.09em] text-white/50">
+        {title}
+      </h3>
+      <ul className="mt-5 space-y-3">{children}</ul>
+    </div>
+  )
+}
+
+export default function Footer({ explorar = explorarDefault }) {
+  return (
+    <footer className="bg-night-2 text-white">
+      <div className="mx-auto max-w-[88rem]">
+        <div className="px-6 pt-16 pb-10 md:px-10 md:pt-24 md:pb-12 lg:px-14">
+          {/* Cierre con llamada a la acción */}
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <h2 className="max-w-xl text-balance text-3xl font-extrabold leading-[1.1] tracking-tight md:text-5xl">
+              Tu tienda, tus reglas
+            </h2>
+            <Button
+              href={PREMIUM_LINK}
+              external
+              size="lg"
+              className="self-start md:self-auto"
+            >
+              Quiero el plan Premium
+            </Button>
+          </div>
+
+          <div className="mt-14 h-px bg-white/10 md:mt-16" />
+
+          {/* Columnas */}
+          <div className="mt-12 grid gap-12 sm:grid-cols-2 md:mt-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-8">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <a href="#top" className="inline-block rounded-lg focus-ring-light">
+                <img src={logo} alt="Lemora" className="h-8 w-auto brightness-0 invert" />
+              </a>
+              <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-white/70">
+                Lemora permite a emprendedores, freelancers y comercios contar con una web propia,
+                adaptada a su identidad de marca y diseñada para facilitar la comercialización de
+                sus productos o servicios.
+              </p>
+            </div>
+
+            <Column title="Explorar">
+              {explorar.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className={linkClass}>
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </Column>
+
+            <Column title="Legal">
+              {legal.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className={linkClass}>
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </Column>
+
+            <Column title="Contacto">
+              <li>
+                <a
+                  href={WHATSAPP_CONTACTO_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  Escribinos por WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${EMAIL}`} className={linkClass}>
+                  {EMAIL}
+                </a>
+              </li>
+              <li>
+                <ul className="flex gap-3 pt-1">
+                  {redes.map((red) => (
+                    <li key={red.label}>
+                      <a
+                        href={red.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={red.label}
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-white hover:text-ink focus-ring-light"
+                      >
+                        <FontAwesomeIcon icon={red.icon} className="h-[18px] w-[18px]" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </Column>
+          </div>
+
+          <p className="mt-14 border-t border-white/10 pt-6 text-[13px] text-white/50 md:mt-16">
+            © {YEAR} Lemora. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
