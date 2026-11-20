@@ -4,6 +4,7 @@ import TrialBanner from "./components/TrialBanner"
 import Footer from "./components/Footer"
 import FuncionesPremium from "./components/FuncionesPremium"
 import PremiumHero from "./premium/PremiumHero"
+import PremiumEjemplos from "./premium/PremiumEjemplos"
 import PremiumPara from "./premium/PremiumPara"
 import PremiumPrecio from "./premium/PremiumPrecio"
 import PremiumPasos from "./premium/PremiumPasos"
@@ -53,6 +54,7 @@ export default function PremiumApp() {
       <Nav />
       <main>
         <PremiumHero />
+        <PremiumEjemplos />
         <FuncionesPremium />
         <PremiumPara />
         <PremiumPrecio />

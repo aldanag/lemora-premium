@@ -715,3 +715,28 @@ body {
   .carru-activa .carru-flecha { animation: carru-flecha 10s ease-in-out infinite; }
 }
 :root[data-motion="on"] .carru-activa .carru-flecha { animation: carru-flecha 10s ease-in-out infinite; }
+
+/* Ejemplos (formato nuevo): la captura larga de la tienda se desliza muy suave dentro de su pantalla.
+   --hasta = cuánto sube (en % del alto de la imagen); --dur = cuánto tarda en ir y volver. */
+@keyframes scroll-suave {
+  0%,
+  10% {
+    transform: translateY(0);
+  }
+  90%,
+  100% {
+    transform: translateY(var(--hasta, -50%));
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Solo corre con la tarjeta a la vista (.tarjeta-viva) y se frena al pasar el mouse o al mantener apretado. */
+  .tarjeta-viva .scroll-suave {
+    animation: scroll-suave var(--dur, 30s) ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .group:hover .scroll-suave,
+  .group:focus-visible .scroll-suave,
+  .group:active .scroll-suave {
+    animation-play-state: paused;
+  }
+}
