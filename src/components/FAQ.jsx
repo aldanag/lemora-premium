@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { useReveal } from "../lib/motion"
+import { ETIQUETA } from "../lib/pastillas"
 
 // Respuestas comunes a todos los planes: se editan acá, en un solo lugar.
 export const faqsDefault = [
@@ -67,7 +68,7 @@ export default function FAQ({ faqs = faqsDefault }) {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <span
             data-reveal
-            className="inline-block rounded-full bg-lime px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink sm:px-3 sm:text-[12.5px] sm:tracking-[0.09em]"
+            className={ETIQUETA}
           >
             Preguntas frecuentes
           </span>

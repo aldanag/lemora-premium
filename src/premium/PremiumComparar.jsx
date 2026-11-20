@@ -3,6 +3,7 @@ import { useReveal } from "../lib/motion"
 import Button from "../components/Button"
 import Tick from "../components/Tick"
 import { LANDING_PLANES, peso, plans } from "../lib/planes"
+import { ETIQUETA } from "../lib/pastillas"
 
 // Las listas salen de los mismos datos que las tarjetas de planes, así no se desfasan.
 const nombre = (f) => f.text ?? f
@@ -21,7 +22,7 @@ export default function PremiumComparar() {
         <div className="text-center">
           <span
             data-reveal
-            className="inline-block rounded-full bg-lime px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink sm:px-3 sm:text-[12.5px] sm:tracking-[0.09em]"
+            className={ETIQUETA}
           >
             ¿Básico o Premium?
           </span>

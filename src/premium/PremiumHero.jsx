@@ -10,6 +10,7 @@ import prodRemera from "../assets/hero/prod-remera.webp"
 import prodShort from "../assets/hero/prod-short.webp"
 import badgeBF from "../assets/premium-overlays/badge-bf.svg"
 import fotoAviso from "../assets/premium-overlays/aviso-producto.jpg"
+import { ETIQUETA_ICONO } from "../lib/pastillas"
 
 // Portada del plan Premium. A la izquierda el título (la palabra final se escribe sola, en una línea) y a la derecha
 // la tienda real de las imágenes Premium en un celular, cortado contra el borde de abajo del panel, con las piezas
@@ -198,7 +199,7 @@ export default function PremiumHero() {
           <div className="text-center lg:self-center lg:text-left">
             <span
               data-reveal
-              className="inline-flex items-center gap-1.5 rounded-full bg-lime px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink sm:px-3 sm:text-[12.5px] sm:tracking-[0.09em]"
+              className={ETIQUETA_ICONO}
             >
               <CrownIcon className="h-3.5 w-3.5" />
               Plan Premium

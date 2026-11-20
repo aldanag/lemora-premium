@@ -11,6 +11,7 @@ import Button from "./Button"
 import Tick from "./Tick"
 import { funcionesPremium } from "../lib/funcionesPremium"
 import { PREMIUM_LINK } from "../lib/planes"
+import { ETIQUETA, ETIQUETA_ICONO } from "../lib/pastillas"
 
 // Una función por bloque, como en la landing del Básico: el texto a un lado y su imagen (cuadrada, generada en
 // la landing original con `herramientas/premium-imagenes/generar.py`) al otro, alternando. Las animaciones en
@@ -65,7 +66,7 @@ function Bloque({ funcion, invertido }) {
   return (
     <div className="grid items-center gap-8 md:grid-cols-2 md:gap-14">
       <div data-reveal className={invertido ? "md:order-2" : ""}>
-        <span className="inline-block rounded-full bg-lime px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink sm:text-[12px]">
+        <span className={ETIQUETA}>
           {funcion.etiqueta}
         </span>
         <h3 className="mt-3 text-balance text-[clamp(22px,6.4vw,26px)] font-bold leading-[1.1] text-white md:text-[30px]">
@@ -146,7 +147,7 @@ export default function FuncionesPremium() {
         <div className="text-center">
           <span
             data-reveal
-            className="inline-flex items-center gap-1.5 rounded-full bg-lime px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink sm:px-3 sm:text-[12.5px] sm:tracking-[0.09em]"
+            className={ETIQUETA_ICONO}
           >
             <CrownIcon className="h-3.5 w-3.5" />
             Funciones Premium
