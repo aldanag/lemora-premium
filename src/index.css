@@ -35,31 +35,28 @@
   --color-night-3: #2A2058;
   --color-snow: #F4F1FF;
   --color-snow-soft: #DFD8F8;
+  --color-snow-mid: #C3BAE7;
   --color-snow-muted: #A79DD6;
+  --color-marco-celu: #3B3262;
+  --color-isla: #0B0818;
 
   --font-heading: "Manrope", system-ui, sans-serif;
   --font-body: "Manrope", system-ui, sans-serif;
 }
 
-/* Anillo de foco único para todo elemento interactivo (claro sobre fondos oscuros). */
+/* Anillos de foco. El nombre dice sobre qué superficie van, y significa lo mismo en la landing y en Premium:
+   - focus-ring:         sobre CLARO (blanco, lila, píldora blanca del menú): contorno ink.
+   - focus-ring-inverse: sobre OSCURO (azul): contorno lavanda. */
 @utility focus-ring {
-  &:focus-visible {
-    outline: 2px solid var(--color-lavender);
-    outline-offset: 2px;
-  }
-}
-
-/* Sobre fondos claros (tags, imágenes, tarjetas blancas). */
-@utility focus-ring-dark {
   &:focus-visible {
     outline: 2px solid var(--color-ink);
     outline-offset: 2px;
   }
 }
 
-@utility focus-ring-light {
+@utility focus-ring-inverse {
   &:focus-visible {
-    outline: 2px solid #ffffff;
+    outline: 2px solid var(--color-lavender);
     outline-offset: 2px;
   }
 }
@@ -74,6 +71,22 @@ body {
 }
 
 @layer base {
+  /* Medidas compartidas por el menú y la portada, para que nada quede a otra distancia.
+     --gutter: aire entre píldora, panel y bordes de la pantalla.
+     --menu-h: alto de la píldora del menú.
+     --inset-panel: margen interno del panel; el logo y el texto de la portada arrancan en la misma línea. */
+  :root {
+    --gutter: 0.75rem;
+    --menu-h: 3.5rem;
+    --inset-panel: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    :root {
+      --gutter: 1.25rem;
+      --inset-panel: 3rem;
+    }
+  }
+
   html {
     scroll-padding-top: 6rem;
     background-color: var(--color-night);

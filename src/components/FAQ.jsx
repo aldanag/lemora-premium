@@ -62,7 +62,7 @@ export default function FAQ({ faqs = faqsDefault }) {
   useReveal(root)
 
   return (
-    <section id="faq" ref={root} className="py-16">
+    <section id="faq" ref={root} className="py-16 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 md:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <span
@@ -92,11 +92,11 @@ export default function FAQ({ faqs = faqsDefault }) {
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
                   aria-controls={`faq-${i}`}
-                  className="group flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left focus-ring"
+                  className="group flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left focus-ring-inverse"
                 >
                   <span
                     className={`text-base font-bold md:text-lg ${
-                      isOpen ? "text-white" : "text-snow-muted group-hover:text-white"
+                      isOpen ? "text-white" : "text-snow-mid group-hover:text-white"
                     }`}
                   >
                     {item.q}

@@ -16,7 +16,7 @@ export default function PremiumComparar() {
   useReveal(root)
 
   return (
-    <section id="comparar" ref={root} className="py-16">
+    <section id="comparar" ref={root} className="py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-4">
         <div className="text-center">
           <span
@@ -74,7 +74,7 @@ export default function PremiumComparar() {
         </div>
 
         <div data-reveal className="mt-8 flex justify-center">
-          <Button href={LANDING_PLANES} variant="secondary" size="lg" className="w-full max-w-xs sm:w-56">
+          <Button href={LANDING_PLANES} variant="outline" size="lg" className="w-full max-w-xs sm:w-56">
             Ver todos los planes
           </Button>
         </div>

@@ -26,7 +26,7 @@ export default function PremiumPasos() {
   useReveal(root)
 
   return (
-    <section id="como-empezar" ref={root} className="py-16">
+    <section id="como-empezar" ref={root} className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center">
           <span
@@ -60,8 +60,8 @@ export default function PremiumPasos() {
         </div>
 
         <div data-reveal className="mt-8 flex justify-center">
-          <Button href={PREMIUM_LINK} external size="lg" className="w-full max-w-xs sm:w-60">
-            Quiero el plan Premium
+          <Button href={PREMIUM_LINK} external variant="inverse" size="lg" className="w-full max-w-xs sm:w-56">
+            Suscribirme a Premium
           </Button>
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function PremiumPara() {
   useReveal(root)
 
   return (
-    <section id="productos-y-servicios" ref={root} className="py-16">
+    <section id="productos-y-servicios" ref={root} className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center">
           <span

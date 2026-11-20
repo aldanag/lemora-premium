@@ -129,8 +129,8 @@ function Cta({ titulo, texto, tono = "lilac" }) {
         <p className="text-[clamp(20px,5.6vw,24px)] font-bold leading-tight">{titulo}</p>
         <p className={`mt-1 text-base ${tono === "lilac" ? "" : "text-snow-soft"}`}>{texto}</p>
       </div>
-      <Button href={PREMIUM_LINK} external size="lg" className="w-full max-w-xs flex-none sm:w-60">
-        Quiero el plan Premium
+      <Button href={PREMIUM_LINK} external variant={tono === "lilac" ? "primary" : "inverse"} size="lg" className="w-full max-w-xs flex-none sm:w-56">
+        Suscribirme a Premium
       </Button>
     </div>
   )
@@ -141,7 +141,7 @@ export default function FuncionesPremium() {
   useReveal(root)
 
   return (
-    <section id="premium" ref={root} className="py-16">
+    <section id="premium" ref={root} className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center">
           <span

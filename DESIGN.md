@@ -60,7 +60,7 @@ El logo es el wordmark "Lemora" en letra cursiva, en un violeta (`#664FD3`) casi
 ## Imágenes
 
 Las capturas del producto reales se muestran dentro de una card de `radius-card`, alineadas arriba. Hasta tener imágenes finales, los marcos de producto quedan como placeholders grises con un ícono de imagen.
-- **Botón secundario.** Sobre fondos blancos o `mist` usa `secondary` (gris `mist` con borde fino). Sobre fondos de color (`lilac`, `lavender`) usa `light` (blanco con borde fino). No uses `secondary` sobre `lilac`: se apaga.
+- **Botón secundario.** Sobre fondos blancos o `mist` usa `secondary` (gris `mist` con borde fino). Sobre fondos de color (`lilac`, `lavender`) usa `tinted` (blanco con borde fino). No uses `secondary` sobre `lilac`: se apaga.
 
 
 ---
@@ -75,8 +75,37 @@ Esta web usa la misma marca sobre fondos azules. Los tokens viven en `src/index.
 | `night-2` | #1F1842 | Paneles, tarjetas y pie |
 | `night-3` | #2A2058 | Tarjetas elevadas |
 | `snow` | #F4F1FF | Texto principal sobre oscuro |
-| `snow-soft` | #DFD8F8 | Texto secundario sobre oscuro: intermedio entre el lila (#CFC6F5) y el blanco |
-| `snow-muted` | #A79DD6 | Texto apagado sobre oscuro (preguntas sin abrir) |
+| `snow-soft` | #DFD8F8 | Texto secundario sobre oscuro (bajadas): intermedio entre el lila y el blanco, 13.2:1 sobre `night` |
+| `snow-mid` | #C3BAE7 | Intermedio entre `snow-soft` y `snow-muted`: preguntas sin abrir y textos de apoyo, 9.9:1 sobre `night` |
+| `snow-muted` | #A79DD6 | Texto apagado sobre oscuro (metadatos), 7.2:1 sobre `night` |
+| `marco-celu` | #3B3262 | Marco violeta oscuro de los celulares |
+| `isla` | #0B0818 | Isla (notch) del celular |
 | `lavender` | #B9ABF0 | Palabra que se escribe en la portada y acentos sobre oscuro |
 
 Los bloques claros (lila, blanco) se conservan en Todo lo del Básico, Cómo empezar, el precio, la comparación y el banner, para no perder la identidad.
+
+## Botones
+
+`Button.jsx` es **idéntico** en la landing y en Premium: si cambia uno, se copia al otro. La variante es el rol; el tamaño, el lugar donde vive.
+
+**Color según la superficie**
+
+| Superficie | Principal | Secundario |
+| --- | --- | --- |
+| Blanco o `mist` | `primary` (violeta) | `secondary` (gris con borde fino) |
+| Lila (`lilac`, `lavender`) o foto | `primary` | `tinted` (blanco con borde fino) |
+| Oscuro (`ink`, `night`) | `inverse` (blanco). Nunca violeta | `outline` (borde blanco) |
+| Menú | `dark` sobre la píldora blanca; `inverse` si el menú es transparente sobre oscuro | |
+
+- `chip`: acción chica y discreta ("Ver ejemplo"), siempre sobre claro.
+- Un solo botón principal por zona visible.
+
+**Tamaños (alto fijo)**: `sm` 40 px (solo el menú), `md` 44 px, `lg` 52 px. El menú mide 56 px (`--menu-h`).
+
+**Ancho del botón suelto y centrado**: `w-full max-w-xs sm:w-56`. Dentro de tarjetas angostas (planes), ancho completo (`block`). En la tarjeta ancha de precio, ancho completo solo en celular; desde `md` mide lo que pide su texto (`md:w-fit`), alineado a la izquierda, con 24 px de aire sobre el botón.
+
+**Textos**: Básico "Probar gratis 1 mes" (menú: "Probar gratis"). Premium "Suscribirme a Premium" (plan anual: "Suscribirme al plan anual").
+
+**Foco**: `focus-ring` (contorno `ink`) sobre claro y `focus-ring-inverse` (contorno `lavender`) sobre oscuro. Significan lo mismo en las dos webs y cada variante de `Button` trae el suyo.
+
+**Otros controles**: `Segmented` (Mensual/Anual, Básico/Premium, Sin/Con Lemora; activo violeta, salvo donde las dos opciones significan cosas distintas), `IconButton` (48 px, flechas del carrusel: blanco sobre oscuro) y `LinkTexto` (link subrayado; `suelto` mide 44 px de alto).

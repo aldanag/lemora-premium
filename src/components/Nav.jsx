@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import logo from "../assets/lemora-logo.svg"
+import logoClaro from "../assets/lemora-logo-claro.svg"
 import Button from "./Button"
 import { PREMIUM_LINK } from "../lib/planes"
 
@@ -21,17 +22,17 @@ export default function Nav({ links = defaultLinks, logoHref = "#top" }) {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-2 z-50 px-4 md:top-4 md:px-5">
+    <header className="fixed inset-x-0 top-[var(--gutter)] z-50 px-[var(--gutter)]">
       <div
-        className={`mx-auto flex items-center justify-between gap-4 rounded-full bg-white ring-1 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none ${
+        className={`relative mx-auto flex items-center justify-between gap-4 rounded-full py-2 ring-1 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none ${
           scrolled
-            ? "max-w-4xl py-2 pl-5 pr-2 shadow-lg shadow-black/30 ring-ink/5"
-            : "max-w-[88rem] py-2 pl-1 pr-1 shadow-none ring-transparent lg:px-8"
+            ? "max-w-4xl bg-white pl-4 pr-2 shadow-lg shadow-black/30 ring-ink/5 md:pl-6"
+            : "max-w-[calc(112rem-2.5rem)] bg-transparent px-5 shadow-none ring-transparent md:px-[var(--inset-panel)]"
         }`}
       >
-        <a href={logoHref} className="flex-none rounded-lg focus-ring-dark">
+        <a href={logoHref} className={`flex-none rounded-lg ${scrolled ? "focus-ring" : "focus-ring-inverse"}`}>
           <img
-            src={logo}
+            src={scrolled ? logo : logoClaro}
             alt="Lemora"
             className={`w-auto transition-[height] duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none ${
               scrolled
@@ -41,13 +42,17 @@ export default function Nav({ links = defaultLinks, logoHref = "#top" }) {
           />
         </a>
 
-        <nav aria-label="Principal" className="hidden md:block">
+        <nav aria-label="Principal" className="hidden md:absolute md:left-1/2 md:block md:-translate-x-1/2">
           <ul className="flex items-center gap-6">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="relative rounded text-sm font-medium text-ink-soft transition hover:text-ink focus-ring-dark after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100 motion-reduce:after:transition-none"
+                  className={`relative rounded text-sm font-medium transition after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:transition-transform after:duration-300 hover:after:scale-x-100 motion-reduce:after:transition-none ${
+                    scrolled
+                      ? "text-ink-soft hover:text-ink focus-ring after:bg-primary"
+                      : "text-snow-soft hover:text-white focus-ring-inverse after:bg-lavender"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -59,11 +64,11 @@ export default function Nav({ links = defaultLinks, logoHref = "#top" }) {
         <Button
           href={PREMIUM_LINK}
           external
-          variant="dark"
+          variant={scrolled ? "dark" : "inverse"}
           size="sm"
           className="flex-none max-[359px]:px-3 max-[359px]:text-[13px]"
         >
-          Quiero Premium
+          Suscribirme<span className="max-[339px]:hidden">&nbsp;a Premium</span>
         </Button>
       </div>
     </header>
