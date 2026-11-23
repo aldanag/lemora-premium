@@ -6,6 +6,8 @@ import Tick from "../components/Tick"
 import WhatsAppIcon from "../components/WhatsAppIcon"
 import { PREMIUM_LINK } from "../lib/planes"
 import fotoTienda from "../assets/hero/tienda-foto.webp"
+import manoCelular from "../assets/hero/mano-celular.webp"
+import tiendaMovil from "../assets/tiendas/movil-2.webp"
 import prodRemera from "../assets/hero/prod-remera.webp"
 import prodShort from "../assets/hero/prod-short.webp"
 import badgeBF from "../assets/premium-overlays/badge-bf.svg"
@@ -74,6 +76,27 @@ const Menu = () => (
 
 // El celular de las imágenes Premium (marco violeta oscuro, hora 9:41, isla, barra promocional, «TU TIENDA», la foto y
 // los productos). Es más alto que el espacio visible: lo corta el borde de abajo del panel.
+// Prueba: celular sostenido por una mano (el mockup trae la pantalla transparente: detrás va la captura real de una tienda Premium).
+// El celular mide 39,1 % del ancho de la imagen, así que la imagen se dimensiona desde --ancho-celu; la pantalla está en
+// 31,5 % / 20,3 % con 37,1 % x 59,4 % de la imagen. El marco del celular arranca al 19,35 % del alto: se sube esa parte
+// para que el celular quede donde estaba el anterior (el resto de la mano lo corta el borde de abajo de la escena).
+function CelularMano() {
+  return (
+    <div
+      className="relative"
+      style={{ width: "calc(var(--ancho-celu) / 0.391)", aspectRatio: "1418 / 1892", marginTop: "calc(var(--ancho-celu) * -0.66)" }}
+    >
+      <img
+        src={tiendaMovil}
+        alt=""
+        className="absolute object-cover object-top"
+        style={{ left: "31.3%", top: "20.1%", width: "37.5%", height: "59.8%", borderRadius: "11% / 5.3%" }}
+      />
+      <img src={manoCelular} alt="" width="1100" height="1468" className="absolute inset-0 h-full w-full" />
+    </div>
+  )
+}
+
 function TiendaCelular() {
   const pista = [...mensajes, ...mensajes]
   return (
@@ -267,7 +290,7 @@ export default function PremiumHero() {
             className="relative mx-auto h-[27rem] w-full max-w-[34rem] overflow-hidden [--ancho-celu:14.5rem] md:h-[31rem] md:[--ancho-celu:16.5rem] lg:h-auto lg:max-w-none lg:[--ancho-celu:min(calc(var(--alto-panel)/1.8),calc((100vw-var(--gutter)*2-var(--inset-panel)*2-2.5rem)*0.366))]"
           >
             <div aria-hidden="true" className="absolute left-1/2 top-[3.5rem] -translate-x-1/2 md:top-[4rem] lg:left-[42%]">
-              <TiendaCelular />
+              <CelularMano />
             </div>
 
             {/* Botón de WhatsApp de la tienda (vende por WhatsApp), pegado a la esquina del celular */}
