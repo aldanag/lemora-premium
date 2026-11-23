@@ -121,18 +121,27 @@ function Bloque({ funcion, invertido }) {
 // Llamado a la acción entre bloques.
 function Cta({ titulo, texto, tono = "lilac" }) {
   const fondo = tono === "lilac" ? "bg-lilac text-ink" : "bg-night-2 text-white ring-1 ring-white/10"
+  // Al acercarse el banner a la pantalla se enciende un resplandor violeta detrás, como el contraluz del celular del hero.
+  const ref = useRef(null)
+  const encendido = useAVista(ref)
   return (
-    <div
-      data-reveal
-      className={`flex flex-col items-center gap-5 rounded-[2rem] px-6 py-8 text-center md:flex-row md:justify-between md:px-10 md:text-left ${fondo}`}
-    >
-      <div>
-        <p className="text-[clamp(20px,5.6vw,24px)] font-bold leading-tight">{titulo}</p>
-        <p className={`mt-1 text-base ${tono === "lilac" ? "" : "text-snow-soft"}`}>{texto}</p>
+    <div ref={ref} className="relative isolate">
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute -inset-x-4 -inset-y-5 -z-10 rounded-[3rem] bg-[radial-gradient(closest-side,rgba(124,92,240,0.95),rgba(98,82,235,0.55)_60%,rgba(84,70,220,0)_100%)] blur-2xl transition-opacity duration-1000 ease-out motion-reduce:transition-none md:-inset-x-10 md:-inset-y-9 ${encendido ? "opacity-100" : "opacity-0"}`}
+      />
+      <div
+        data-reveal
+        className={`flex flex-col items-center gap-5 rounded-[2rem] px-6 py-8 text-center transition-shadow duration-1000 ease-out motion-reduce:transition-none md:flex-row md:justify-between md:px-10 md:text-left ${fondo} ${encendido ? "shadow-[0_0_0_1px_rgba(167,155,255,0.35),0_0_2.5rem_rgba(145,130,255,0.35)]" : "shadow-none"}`}
+      >
+        <div>
+          <p className="text-[clamp(20px,5.6vw,24px)] font-bold leading-tight">{titulo}</p>
+          <p className={`mt-1 text-base ${tono === "lilac" ? "" : "text-snow-soft"}`}>{texto}</p>
+        </div>
+        <Button href={PREMIUM_LINK} external variant={tono === "lilac" ? "primary" : "inverse"} size="lg" className="w-full max-w-xs flex-none sm:w-56">
+          Suscribirme a Premium
+        </Button>
       </div>
-      <Button href={PREMIUM_LINK} external variant={tono === "lilac" ? "primary" : "inverse"} size="lg" className="w-full max-w-xs flex-none sm:w-56">
-        Suscribirme a Premium
-      </Button>
     </div>
   )
 }
