@@ -79,7 +79,7 @@ function Tarjeta({ t }) {
               <img
                 src={t.escritorio}
                 alt=""
-                width="800"
+                width="790"
                 height="1450"
                 loading="lazy"
                 draggable="false"
@@ -117,7 +117,7 @@ function Tarjeta({ t }) {
               <img
                 src={t.movil}
                 alt=""
-                width="390"
+                width="375"
                 height="1950"
                 loading="lazy"
                 draggable="false"
