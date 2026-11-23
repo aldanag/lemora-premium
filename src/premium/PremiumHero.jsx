@@ -144,7 +144,7 @@ function CelularMano({ tiempo }) {
       {/* Escritorio: tres tarjetas alineadas a la izquierda del celular (aviso, carteles de promoción y oferta). Los carteles
           y la oferta se unen con rectas punteadas, como en las imágenes del plan, a un aro sobre el cartel del primer
           producto y sobre el producto. Las medidas van en % de la imagen de la mano (1418 x 1892 px) y se mueven con el celular. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden xl:block">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden md:block lg:hidden xl:block">
         <svg viewBox="0 0 1418 1892" fill="none" className="absolute inset-0 h-full w-full overflow-visible">
           <g stroke="#b9afff" strokeWidth="5" strokeLinecap="round" strokeDasharray="0.1 14">
             <path d="M 409 987 H 490" />
@@ -290,7 +290,7 @@ export default function PremiumHero() {
 
           {/* Escena: el celular arranca arriba y lo corta el borde de abajo del panel (la escena toca el borde). */}
           <div
-            className="relative mx-auto h-[27rem] w-full max-w-[34rem] overflow-x-visible overflow-y-clip [--ancho-celu:14.5rem] md:h-[31rem] md:[--ancho-celu:16.5rem] lg:h-auto lg:max-w-none lg:[--ancho-celu:min(calc(var(--alto-panel)/1.8),calc((100vw-var(--gutter)*2-var(--inset-panel)*2-2.5rem)*0.366))]"
+            className="relative mx-auto h-[29rem] w-full max-w-[34rem] overflow-x-visible overflow-y-clip [--ancho-celu:14.5rem] md:h-[31rem] md:[--ancho-celu:16.5rem] lg:h-auto lg:max-w-none lg:[--ancho-celu:min(calc(var(--alto-panel)/1.8),calc((100vw-var(--gutter)*2-var(--inset-panel)*2-2.5rem)*0.366))]"
           >
             {/* Escenario: discos concéntricos detrás del celular, para dar profundidad y que la mano se despegue del fondo */}
             <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[44%] aspect-square -translate-x-1/2 -translate-y-1/2 lg:left-[42%]" style={{ width: "calc(var(--ancho-celu) * 2.7)" }}>
@@ -316,22 +316,14 @@ export default function PremiumHero() {
               </div>
 
               {/* Oferta con contador: en escritorio va pegada al celular (ver CelularMano) */}
-              <div data-flota className={`absolute bottom-[3%] left-0 w-[10.6rem] rounded-2xl bg-white p-2 text-ink md:left-[6%] md:w-[14rem] md:p-2.5 xl:hidden ${sombra}`}>
+              <div data-flota className={`absolute bottom-2 left-1/2 w-[11.5rem] -translate-x-1/2 rounded-2xl bg-white p-2 text-ink md:hidden lg:bottom-[3%] lg:left-0 lg:block lg:w-[14rem] lg:translate-x-0 lg:p-2.5 xl:hidden ${sombra}`}>
                 <OfertaContenido tiempo={[dias, horas, minutos, segundos]} />
-              </div>
-
-              {/* Notificación de confianza */}
-              <div
-                data-flota
-                className={`absolute bottom-[26%] left-0 hidden w-[13.4rem] items-stretch overflow-hidden rounded-2xl bg-white text-ink sm:flex md:-left-8 md:bottom-[40%] lg:hidden ${sombra}`}
-              >
-                <AvisoContenido />
               </div>
 
               {/* Pedido por WhatsApp */}
               <div
                 data-flota
-                className={`absolute right-0 top-[44%] hidden items-center gap-2.5 rounded-2xl bg-white p-2.5 pr-3 text-ink sm:flex md:-right-6 lg:bottom-[12%] lg:right-0 lg:top-auto ${sombra}`}
+                className={`absolute right-0 top-[44%] hidden items-center gap-2.5 rounded-2xl bg-white p-2.5 pr-3 text-ink md:-right-12 md:flex lg:hidden xl:bottom-[12%] xl:right-0 xl:top-auto xl:flex ${sombra}`}
               >
                 <WhatsAppIcon className="h-9 w-9 flex-none" />
                 <span className="min-w-0">
