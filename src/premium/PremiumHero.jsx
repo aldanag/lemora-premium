@@ -57,7 +57,7 @@ function AvisoContenido() {
     <>
         <img src={fotoAviso} alt="" className="w-14 flex-none object-cover" />
         <div className="flex-1 px-2.5 py-2 leading-snug">
-          <p className="text-[11px]">
+          <p className="text-balance text-[11px]">
             Alguien en <b>tu zona</b> ya compró este artículo
           </p>
           <p className="mt-0.5 text-[10px] font-bold">Remera oliva</p>
@@ -144,7 +144,7 @@ function CelularMano({ tiempo }) {
       {/* Escritorio: tres tarjetas alineadas a la izquierda del celular (aviso, carteles de promoción y oferta). Los carteles
           y la oferta se unen con rectas punteadas, como en las imágenes del plan, a un aro sobre el cartel del primer
           producto y sobre el producto. Las medidas van en % de la imagen de la mano (1418 x 1892 px) y se mueven con el celular. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden md:block lg:hidden xl:block">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden md:block">
         <svg viewBox="0 0 1418 1892" fill="none" className="absolute inset-0 h-full w-full overflow-visible">
           <g stroke="#b9afff" strokeWidth="5" strokeLinecap="round" strokeDasharray="0.1 14">
             <path d="M 409 987 H 490" />
@@ -155,10 +155,10 @@ function CelularMano({ tiempo }) {
             <circle cx="500" cy="1090" r="11" />
           </g>
         </svg>
-        <div className="absolute right-[71.2%] top-[29.6%] flex w-[12.4rem] items-stretch overflow-hidden rounded-2xl bg-white text-ink shadow-xl shadow-black/30">
+        <div className="absolute right-[71.2%] top-[29.6%] flex w-[12.4rem] items-stretch overflow-hidden rounded-xl bg-white text-ink shadow-xl shadow-black/30">
           <AvisoContenido />
         </div>
-        <div className="absolute right-[71.2%] top-[45.4%] w-[12.4rem] rounded-2xl bg-white p-2 text-ink shadow-xl shadow-black/30">
+        <div className="absolute right-[71.2%] top-[44%] w-[12.4rem] rounded-xl bg-white p-2 text-ink shadow-xl shadow-black/30">
           <p className="whitespace-nowrap text-[10px] font-bold uppercase leading-none tracking-[0.02em]">Promociones especiales</p>
           <div className="mt-2 grid grid-cols-3 gap-1.5">
             {[
@@ -173,7 +173,7 @@ function CelularMano({ tiempo }) {
             ))}
           </div>
         </div>
-        <div className="absolute right-[71.2%] top-[54.7%] w-[12.4rem] rounded-2xl bg-white p-2 text-ink shadow-xl shadow-black/30">
+        <div className="absolute right-[71.2%] top-[56%] w-[12.4rem] rounded-xl bg-white p-2 text-ink shadow-xl shadow-black/30">
           <OfertaContenido tiempo={tiempo} />
         </div>
       </div>
@@ -219,7 +219,7 @@ export default function PremiumHero() {
           aria-hidden="true"
           className="pointer-events-none absolute -left-24 -top-32 h-[26rem] w-[26rem] rounded-full bg-[#3a46d8]/25 blur-[90px]"
         />
-        <div className="relative grid items-stretch gap-8 px-5 pt-10 md:px-[var(--inset-panel)] md:pt-14 lg:[--alto-panel:36rem] lg:min-h-[var(--alto-panel)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pt-0">
+        <div className="relative grid items-stretch gap-8 px-5 pt-10 md:px-[var(--inset-panel)] md:pt-14 lg:[--alto-panel:31rem] lg:min-h-[var(--alto-panel)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:pt-0">
 
           {/* Texto: un solo ritmo de espacios (título 16, bajada 12, botones 24, tildes 20). */}
           <div className="text-center lg:self-center lg:text-left">
@@ -232,7 +232,7 @@ export default function PremiumHero() {
             </span>
             <h1
               data-reveal
-              className="mt-4 text-[clamp(32px,9vw,40px)] font-bold leading-[1.05] text-white md:text-[48px] lg:text-[clamp(40px,3.6vw,54px)]"
+              className="mt-4 text-balance text-[clamp(32px,9vw,40px)] font-bold leading-[1.05] text-white md:text-[48px] lg:text-[clamp(40px,3.6vw,54px)]"
             >
               <span className="sr-only">
                 Tu tienda, con todo para vender más, conocer clientes, ordenar stock y promocionar.
@@ -259,7 +259,7 @@ export default function PremiumHero() {
             </h1>
             <p
               data-reveal
-              className="mx-auto mt-3 md:mt-4 max-w-xl text-base font-semibold text-snow-soft md:text-[19px] lg:mx-0 lg:text-[18px]"
+              className="mx-auto mt-3 md:mt-4 max-w-xl text-pretty text-base font-semibold text-snow-soft md:text-[19px] lg:mx-0 lg:text-[18px]"
             >
               Todo lo del plan Básico y además gestión de clientes e inventario, categorías con su propia
               página, barra promocional propia y herramientas de marketing. Sin comisiones por venta.
@@ -277,7 +277,7 @@ export default function PremiumHero() {
             </div>
             <ul
               data-reveal
-              className="mt-4 sm:mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1.5 text-sm font-semibold text-snow-soft lg:justify-start"
+              className="mt-4 sm:mt-5 flex flex-wrap justify-center gap-x-5 gap-y-1.5 text-balance text-sm font-semibold text-snow-soft lg:justify-start"
             >
               {["Sin comisiones", "Mínimo 3 meses", "Podés pasar desde el Básico"].map((t) => (
                 <li key={t} className="flex items-center gap-1.5">
@@ -290,16 +290,16 @@ export default function PremiumHero() {
 
           {/* Escena: el celular arranca arriba y lo corta el borde de abajo del panel (la escena toca el borde). */}
           <div
-            className="relative mx-auto h-[29rem] w-full max-w-[34rem] overflow-x-visible overflow-y-clip [--ancho-celu:14.5rem] md:h-[31rem] md:[--ancho-celu:16.5rem] lg:h-auto lg:max-w-none lg:[--ancho-celu:min(calc(var(--alto-panel)/1.8),calc((100vw-var(--gutter)*2-var(--inset-panel)*2-2.5rem)*0.366))]"
+            className="relative mx-auto h-[29rem] w-full max-w-[34rem] overflow-x-visible overflow-y-clip [--ancho-celu:14.5rem] md:h-[31rem] md:[--ancho-celu:16.5rem] lg:h-auto lg:max-w-none lg:[--ancho-celu:14.5rem] xl:[--ancho-celu:15.5rem]"
           >
             {/* Escenario: discos concéntricos detrás del celular, para dar profundidad y que la mano se despegue del fondo */}
-            <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[44%] aspect-square -translate-x-1/2 -translate-y-1/2 lg:left-[42%]" style={{ width: "calc(var(--ancho-celu) * 2.7)" }}>
+            <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[44%] aspect-square -translate-x-1/2 -translate-y-1/2 lg:left-[72%] xl:left-[58%] 2xl:left-[47.5%]" style={{ width: "calc(var(--ancho-celu) * 2.7)" }}>
               <div className="absolute inset-0 rounded-full border border-white/[0.07]" />
               <div className="absolute inset-[13%] rounded-full border border-[#a79bff]/20" />
               <div className="absolute inset-[27%] rounded-full bg-[radial-gradient(closest-side,rgba(98,82,235,0.42),rgba(60,52,190,0.14)_70%,transparent)] ring-1 ring-[#a79bff]/25" />
             </div>
 
-            <div aria-hidden="true" className="absolute left-1/2 top-[6.75rem] -translate-x-1/2 md:top-[5.5rem] lg:left-[42%]">
+            <div aria-hidden="true" className="absolute left-1/2 top-[6.75rem] -translate-x-1/2 md:top-[5.5rem] lg:left-[72%] lg:top-[3.25rem] xl:left-[58%] 2xl:left-[47.5%]">
               <CelularMano tiempo={[dias, horas, minutos, segundos]} />
             </div>
 
@@ -307,7 +307,7 @@ export default function PremiumHero() {
               {/* Sin Lemora Ads */}
               <div
                 data-flota
-                className={`absolute left-0 top-[6%] flex items-center gap-2 rounded-2xl bg-night py-1.5 pl-1.5 pr-3 text-white ring-1 ring-white/15 ${sombra} md:left-[2%] md:gap-2.5 md:py-2 md:pl-2 md:pr-4 lg:left-auto lg:right-0 lg:top-[5%] xl:top-[24%]`}
+                className={`absolute left-0 top-[6%] flex items-center gap-2 rounded-xl bg-night py-1.5 pl-1.5 pr-3 text-white ring-1 ring-white/15 ${sombra} md:left-[2%] md:gap-2.5 md:py-2 md:pl-2 md:pr-4 lg:left-auto lg:right-0 lg:top-[7%]`}
               >
                 <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-accent text-ink md:h-8 md:w-8">
                   <Tick className="h-4 w-4" tone="text-ink" />
@@ -316,14 +316,14 @@ export default function PremiumHero() {
               </div>
 
               {/* Oferta con contador: en escritorio va pegada al celular (ver CelularMano) */}
-              <div data-flota className={`absolute bottom-2 left-1/2 w-[11.5rem] -translate-x-1/2 rounded-2xl bg-white p-2 text-ink md:hidden lg:bottom-[3%] lg:left-0 lg:block lg:w-[14rem] lg:translate-x-0 lg:p-2.5 xl:hidden ${sombra}`}>
+              <div data-flota className={`absolute inset-x-0 bottom-2 mx-auto w-[11.5rem] rounded-xl bg-white p-2 text-ink md:hidden ${sombra}`}>
                 <OfertaContenido tiempo={[dias, horas, minutos, segundos]} />
               </div>
 
               {/* Pedido por WhatsApp */}
               <div
                 data-flota
-                className={`absolute right-0 top-[44%] hidden items-center gap-2.5 rounded-2xl bg-white p-2.5 pr-3 text-ink md:-right-12 md:flex lg:hidden xl:bottom-[12%] xl:right-0 xl:top-auto xl:flex ${sombra}`}
+                className={`absolute right-0 top-[44%] hidden items-center gap-2.5 rounded-xl bg-white p-2.5 pr-3 text-ink md:-right-12 md:flex lg:-right-3 lg:bottom-[12%] lg:top-auto xl:-right-4 ${sombra}`}
               >
                 <WhatsAppIcon className="h-9 w-9 flex-none" />
                 <span className="min-w-0">
