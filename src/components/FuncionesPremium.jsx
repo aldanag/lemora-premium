@@ -5,8 +5,9 @@ import BarraMensajes from "./BarraMensajes"
 import InventarioAnimado from "./InventarioAnimado"
 import ClienteAnimado from "./ClienteAnimado"
 import MarketingAnimado from "./MarketingAnimado"
+import PagosAnimado from "./PagosAnimado"
+import EscenaMayorista from "./escenas/EscenaMayorista"
 import CarritoAnimado from "./CarritoAnimado"
-import CarruselAnimado from "./CarruselAnimado"
 import Button from "./Button"
 import Tick from "./Tick"
 import { funcionesPremium } from "../lib/funcionesPremium"
@@ -30,7 +31,8 @@ const etiquetas = [
   "Tus clientes",
   "Tu inventario",
   "Tu carrito",
-  "Tus promociones",
+  "Tu venta",
+  "Tus pagos",
   "Tu marketing",
 ]
 
@@ -38,10 +40,12 @@ const funciones = funcionesPremium.map((f, i) => ({
   ...f,
   n: i + 1,
   etiqueta: etiquetas[i],
-  imagen: fotoDe(i + 1),
-  // el carrito (5) y los badges de Marketing (7) los dibuja la animación junto con la imagen
+  // la función 6 (mayorista o minorista) es una escena viva y no una imagen: las imágenes siguen la numeración sin ella
+  imagen: i === 5 ? undefined : fotoDe(i < 5 ? i + 1 : i),
+  escena: i === 5 ? <EscenaMayorista /> : undefined,
+  // el carrito (5) y los badges de Marketing (8) los dibuja la animación junto con la imagen
   superposicion:
-    i === 0 ? <BarraMensajes /> : i === 2 ? <ClienteAnimado /> : i === 3 ? <InventarioAnimado /> : i === 4 ? <CarritoAnimado /> : i === 5 ? <CarruselAnimado /> : i === 6 ? <MarketingAnimado /> : undefined,
+    i === 0 ? <BarraMensajes /> : i === 2 ? <ClienteAnimado /> : i === 3 ? <InventarioAnimado /> : i === 4 ? <CarritoAnimado /> : i === 6 ? <PagosAnimado /> : i === 7 ? <MarketingAnimado /> : undefined,
 }))
 
 // Devuelve true mientras el elemento está a la vista (para que las animaciones corran solo ahí).
@@ -90,7 +94,9 @@ function Bloque({ funcion, invertido }) {
           ref={marco}
           className="@container relative mx-auto aspect-square w-full max-w-lg overflow-hidden rounded-[2rem] bg-lavender shadow-xl shadow-black/30 ring-1 ring-white/10"
         >
-          {funcion.imagen ? (
+          {funcion.escena ? (
+            cloneElement(funcion.escena, { activa })
+          ) : funcion.imagen ? (
             <img
               src={funcion.imagen}
               alt={funcion.etiquetaImagen ?? funcion.titulo}
@@ -183,7 +189,7 @@ export default function FuncionesPremium() {
                   texto="Contratá el plan Premium o, si ya tenés el Básico, actualizamos tu plan en el día."
                 />
               )}
-              {i === 5 && (
+              {i === 4 && (
                 <Cta
                   titulo="¿Te convence? Empezá hoy."
                   texto="Escribinos por WhatsApp y armamos tu tienda Premium."

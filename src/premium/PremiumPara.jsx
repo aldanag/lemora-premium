@@ -12,8 +12,6 @@ const basico = plans.find((p) => p.name === "Básico")
 
 // [nombre que se muestra en Premium, pastilla]: solo para las funciones que cambian al pasar a Premium.
 const MEJORAS = {
-  "Carrusel de hasta 8 imágenes": ["Carrusel de imágenes", "Hasta 12 en Premium"],
-  "3 banners promocionales": ["Banners promocionales", "Hasta 5 en Premium"],
   "Incluye Lemora Ads en barra promocional": ["Barra promocional", "Con tus propios mensajes"],
 }
 

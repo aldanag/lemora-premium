@@ -16,7 +16,7 @@ const comun = (q) => faqsDefault.find((f) => f.q === q).a
 const faqs = [
   {
     q: "¿Qué suma el plan Premium?",
-    a: "Todo lo del plan Básico y además: gestión de inventario por categorías, panel para gestión de clientes, menú y página propia para cada categoría, carrusel de hasta 12 imágenes, 5 banners promocionales y una barra promocional con tus propios mensajes, sin Lemora Ads.",
+    a: "Todo lo del plan Básico y además: gestión de inventario por categorías, panel para gestión de clientes, menú y página propia para cada categoría, una barra promocional con tus propios mensajes, sin Lemora Ads.",
   },
   {
     q: "¿Puedo cancelar cuando quiera?",

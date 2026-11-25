@@ -26,7 +26,7 @@ Lemora es una tienda online por membresía para emprendedores de Latinoamérica:
 - Escribí en español rioplatense con voseo: "Probá", "Empezá", "Vendé", "Tenés", "Pagás". Nunca "tú" ni formas de España ("añadir": usá "agregar").
 - Los títulos son frases cortas que terminan en punto, a veces en dos oraciones: "Tu tienda online. Sin comisiones.", "Empezá gratis. Vendé desde hoy."
 - Los botones usan el infinitivo y dicen qué pasa: "Probar gratis 1 mes", "Suscribirme". Sin signos de exclamación ni emojis.
-- Solo afirmaciones verdaderas. Los datos que se pueden repetir: sin comisiones por venta, sin tarjeta para el mes de prueba, Básico $9.000/mes con contratación mínima de 1 mes, Premium $15.000/mes con contratación mínima de 3 meses, pedidos por WhatsApp, cobro por MercadoPago. No inventes cifras, calificaciones con estrellas ni cantidades de tiendas.
+- Solo afirmaciones verdaderas. Los datos que se pueden repetir: sin comisiones por venta, sin tarjeta para el mes de prueba, Básico $12.490/mes con contratación mínima de 1 mes, Premium $18.990/mes con contratación mínima de 3 meses, pedidos por WhatsApp, cobro por MercadoPago. No inventes cifras, calificaciones con estrellas ni cantidades de tiendas.
 - Los testimonios son siempre reales, con nombre, rubro o tienda y foto si existe. Un testimonio pendiente va como lugar marcado con `[Completar]`, nunca con datos inventados.
 - Evitá jerga técnica ("marquee", "popup", "slides") en textos nuevos: el carrusel se cuenta en "imágenes", no en "slides". Si un plan ya usa la jerga, se respeta.
 - Pendiente de decidir: el mes gratis se nombra "1 mes" en botones y planes y "30 días" en el título del banner. Elegí una sola forma y usala en todo el sitio.
@@ -109,3 +109,60 @@ Los bloques claros (lila, blanco) se conservan en Todo lo del Básico, Cómo emp
 **Foco**: `focus-ring` (contorno `ink`) sobre claro y `focus-ring-inverse` (contorno `lavender`) sobre oscuro. Significan lo mismo en las dos webs y cada variante de `Button` trae el suyo.
 
 **Otros controles**: `Segmented` (Mensual/Anual, Básico/Premium, Sin/Con Lemora; el activo cambia de color según la opción, igual en todos: la primera en tinta y las demás en violeta), `IconButton` (48 px, flechas del carrusel: blanco sobre oscuro) y `LinkTexto` (link subrayado; `suelto` mide 44 px de alto).
+
+
+---
+
+## Modo oscuro primero (decisión del 2026-11-23)
+
+Toda pieza nueva (web Premium, banners, videos, historias, anuncios) se diseña **primero sobre el azul de marca** (`night` `#17122F`); la versión clara se deriva después y es una variante. Detalle completo en `marca/MARCA.md`, secciones 12 a 15, y dibujado en `marca/hoja-de-estilo-premium.html`.
+
+- **Fondos:** `night` liso, o el panel degradé `linear-gradient(160deg, #1A1452 0%, #0F0C37 55%, #080620 100%)` cuando hay celular o escena. Es el único degradé permitido (profundidad, no decoración).
+- **Botón principal:** blanco sobre azul; violeta solo sobre blanco o lila.
+
+### Cómo combinar los colores sin perder la marca
+
+La marca es flexible: una pieza se reconoce por la combinación. Alcanza con **dos de tres anclas**:
+
+1. **El violeta**: resplandor, aros, botón o banner en `primary` / `glow` `#7C5CF0`.
+2. **Un bloque claro**: tarjeta blanca o banner `lilac` dentro del azul.
+3. **Un acento chico**: tilde `accent` o etiqueta `lime`, uno por pieza y nunca de fondo.
+
+Siempre Manrope y el logo en blanco. Proporción de referencia en una pieza oscura: ~65 % azul, ~15 % violeta, ~15 % bloques claros, ≤5 % acentos. No usar otros azules o violetas fuera de la escalera, ni resplandores de otro color, ni más de un foco de luz por pieza.
+
+Tokens que aparecen solo sobre oscuro (todavía no están en `@theme`, se usan como valores sueltos):
+
+| Valor | Uso |
+|---|---|
+| `#7C5CF0` (`glow`) | Resplandor de banners y aros de las líneas punteadas |
+| `#B9AFFF` (`punteado`) | Puntos de las líneas punteadas |
+| `#A79BFF` | Borde fino del banner encendido (al 35 %) |
+| `#FFF3C6` / `#241C1B` | Crema y su tinta, solo para el gancho de los videos |
+
+## Elementos de Premium
+
+Medidas y colores completos en `marca/MARCA.md`, sección 14. Resumen:
+
+- **Contraluz y discos** detrás del celular con mano; un solo foco de luz por pieza.
+- **Celular con mano** siempre cortado contra el borde de abajo del panel; pantalla dibujada en HTML (`TiendaPantalla.jsx`, contenido editable en `tiendaHero.js`).
+- **Tarjetas flotantes**: blancas, **radio 12 px** (`rounded-xl`), sombra `shadow-xl shadow-black/30`, 12,4 rem de ancho; cuadritos interiores 8 px. Una columna a un lado del celular y WhatsApp del otro; "Sin Lemora Ads" arriba a la derecha.
+- **Líneas punteadas con aro**: rectas, `stroke-dasharray: 0.1 14`, aro de radio 11 (relleno blanco, borde `#7C5CF0`).
+- **Carteles de promoción** (Black Friday, Hot Sale, CyberMonday): SVG en `src/assets/premium-overlays/`.
+- **Banner que se enciende** (`Cta` en `FuncionesPremium.jsx`): halo violeta detrás, 1 s, al llegar a la vista.
+- **Alto del hero:** 31 rem en escritorio, igual que la landing principal y la página Básico. El celular escala por tramos (`--ancho-celu`: 14,5 rem, 15,5 rem y desde 2xl se mantiene) y las tarjetas conservan su tamaño.
+
+## Movimiento (motion graphics)
+
+GSAP (`src/lib/motion.js`) y CSS. Con "reducir movimiento" todo queda quieto y visible; `?motion=on` fuerza el movimiento para revisarlo.
+
+| Efecto | Medida |
+|---|---|
+| Entrada de sección (`data-reveal`) | 28 px · 1 s · `expo.out` · escalonado 0,12 s · arranca al 88 % de la pantalla |
+| Título que sube (`data-words`) | 0,9 s · `expo.out` · escalonado 0,06 s |
+| Palabra que rota en el título | 0,9 s · `cubic-bezier(.19,1,.22,1)` · cada 2,6 s |
+| Flotar (`data-flota`) | ±8 px · 2,8 s + 0,45 s por tarjeta · `sine.inOut` · ida y vuelta |
+| Encender el halo del banner | Opacidad 0 → 1 en 1 s · `ease-out` |
+| Marquesina de la barra promocional | `translateX(-50%)` · 18 s · lineal · infinita |
+| Toque (tap) | Círculo violeta que se achica + dos ondas que se expanden; interacción con toques, no con mouse |
+
+Reglas: un solo movimiento principal por escena; entrar subiendo, nunca girar ni rebotar; reposo = estado final legible. Importante: GSAP anula el `translate` de Tailwind en los elementos con `data-flota`, así que esos elementos se centran con `inset-x-0 mx-auto` y no con `-translate-x-1/2`.

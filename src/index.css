@@ -249,17 +249,17 @@ body {
   67%, 100% { opacity: 0; transform: translateY(1cqw) scale(0.96); }
 }
 @keyframes inv-cursor {
-  0% { opacity: 0; transform: translate(9cqw, -8cqw); }
-  4% { opacity: 1; }
+  0%, 6% { opacity: 0; transform: translate(3cqw, -3cqw) scale(1); }
+  8% { opacity: 1; transform: translate(3cqw, -3cqw) scale(1); }
   11% { opacity: 1; transform: translate(0, 0) scale(1); }
   12.5% { opacity: 1; transform: scale(0.82); }
-  14.5%, 20% { opacity: 1; transform: translate(0, 0) scale(1); }
+  14.5%, 24.5% { opacity: 1; transform: translate(0, 0) scale(1); }
   27% { opacity: 1; transform: translate(-5.37cqw, 17.1cqw) scale(1); }
   29% { opacity: 1; transform: translate(-5.37cqw, 17.1cqw) scale(0.82); }
-  30.5%, 39% { opacity: 1; transform: translate(-5.37cqw, 17.1cqw) scale(1); }
+  30.5%, 42.5% { opacity: 1; transform: translate(-5.37cqw, 17.1cqw) scale(1); }
   45% { opacity: 1; transform: translate(5.47cqw, 23.85cqw) scale(1); }
   47% { opacity: 1; transform: translate(5.47cqw, 23.85cqw) scale(0.82); }
-  48.5%, 50% { opacity: 1; transform: translate(5.47cqw, 23.85cqw) scale(1); }
+  48.5%, 55.5% { opacity: 1; transform: translate(5.47cqw, 23.85cqw) scale(1); }
   58% { opacity: 1; transform: translate(-0.72cqw, 37.68cqw) scale(1); }
   60.5% { opacity: 1; transform: translate(-0.72cqw, 37.68cqw) scale(0.82); }
   62%, 66.5% { opacity: 1; transform: translate(-0.72cqw, 37.68cqw) scale(1); }
@@ -339,41 +339,41 @@ body {
   63.5%, 100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .inv-activa .inv-ventana { animation: inv-ventana 8.5s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
-  .inv-activa .inv-cursor { animation: inv-cursor 8.5s ease-in-out infinite; }
-  .inv-activa .inv-onda-1 { animation: inv-onda-1 8.5s ease-out infinite; }
-  .inv-activa .inv-onda-p { animation: inv-onda-p 8.5s ease-out infinite; }
-  .inv-activa .inv-onda-s { animation: inv-onda-s 8.5s ease-out infinite; }
-  .inv-activa .inv-onda-g { animation: inv-onda-g 8.5s ease-out infinite; }
-  .inv-activa .inv-anillo-p { animation: inv-anillo-p 8.5s linear infinite; }
-  .inv-activa .inv-anillo-s { animation: inv-anillo-s 8.5s linear infinite; }
-  .inv-activa .inv-ant-p { animation: inv-ant-p 8.5s linear infinite; }
-  .inv-activa .inv-ch { animation: inv-ch 8.5s linear infinite; animation-delay: calc(var(--i) * 0.127s); }
-  .inv-activa .inv-ch::after { animation: inv-caret 8.5s linear infinite; animation-delay: calc(var(--i) * 0.127s); }
-  .inv-activa .inv-ch:last-child::after { animation: inv-caret-fin 8.5s linear infinite; animation-delay: calc(var(--i) * 0.127s); }
-  .inv-activa .inv-arriba-s { animation: inv-arriba-s 8.5s ease-out infinite; }
-  .inv-activa .inv-ant-s { animation: inv-ant-s 8.5s linear infinite; }
-  .inv-activa .inv-nuevo-s { animation: inv-nuevo-s 8.5s ease-out infinite; }
-  .inv-activa .inv-guardar { animation: inv-guardar 8.5s linear infinite; }
+  .inv-activa .inv-ventana { animation: inv-ventana 7s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+  .inv-activa .inv-cursor { animation: inv-cursor 7s ease-in-out infinite; }
+  .inv-activa .inv-onda-1 { animation: inv-onda-1 7s ease-out infinite; }
+  .inv-activa .inv-onda-p { animation: inv-onda-p 7s ease-out infinite; }
+  .inv-activa .inv-onda-s { animation: inv-onda-s 7s ease-out infinite; }
+  .inv-activa .inv-onda-g { animation: inv-onda-g 7s ease-out infinite; }
+  .inv-activa .inv-anillo-p { animation: inv-anillo-p 7s linear infinite; }
+  .inv-activa .inv-anillo-s { animation: inv-anillo-s 7s linear infinite; }
+  .inv-activa .inv-ant-p { animation: inv-ant-p 7s linear infinite; }
+  .inv-activa .inv-ch { animation: inv-ch 7s linear infinite; animation-delay: calc(var(--i) * 0.105s); }
+  .inv-activa .inv-ch::after { animation: inv-caret 7s linear infinite; animation-delay: calc(var(--i) * 0.105s); }
+  .inv-activa .inv-ch:last-child::after { animation: inv-caret-fin 7s linear infinite; animation-delay: calc(var(--i) * 0.105s); }
+  .inv-activa .inv-arriba-s { animation: inv-arriba-s 7s ease-out infinite; }
+  .inv-activa .inv-ant-s { animation: inv-ant-s 7s linear infinite; }
+  .inv-activa .inv-nuevo-s { animation: inv-nuevo-s 7s ease-out infinite; }
+  .inv-activa .inv-guardar { animation: inv-guardar 7s linear infinite; }
 }
-:root[data-motion="on"] .inv-activa .inv-ventana { animation: inv-ventana 8.5s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
-:root[data-motion="on"] .inv-activa .inv-cursor { animation: inv-cursor 8.5s ease-in-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-onda-1 { animation: inv-onda-1 8.5s ease-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-onda-p { animation: inv-onda-p 8.5s ease-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-onda-s { animation: inv-onda-s 8.5s ease-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-onda-g { animation: inv-onda-g 8.5s ease-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-anillo-p { animation: inv-anillo-p 8.5s linear infinite; }
-:root[data-motion="on"] .inv-activa .inv-anillo-s { animation: inv-anillo-s 8.5s linear infinite; }
-:root[data-motion="on"] .inv-activa .inv-ant-p { animation: inv-ant-p 8.5s linear infinite; }
-:root[data-motion="on"] .inv-activa .inv-ch { animation: inv-ch 8.5s linear infinite; animation-delay: calc(var(--i) * 0.127s); }
-:root[data-motion="on"] .inv-activa .inv-ch::after { animation: inv-caret 8.5s linear infinite; animation-delay: calc(var(--i) * 0.127s); }
-:root[data-motion="on"] .inv-activa .inv-ch:last-child::after { animation: inv-caret-fin 8.5s linear infinite; animation-delay: calc(var(--i) * 0.127s); }
-:root[data-motion="on"] .inv-activa .inv-arriba-s { animation: inv-arriba-s 8.5s ease-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-ant-s { animation: inv-ant-s 8.5s linear infinite; }
-:root[data-motion="on"] .inv-activa .inv-nuevo-s { animation: inv-nuevo-s 8.5s ease-out infinite; }
-:root[data-motion="on"] .inv-activa .inv-guardar { animation: inv-guardar 8.5s linear infinite; }
+:root[data-motion="on"] .inv-activa .inv-ventana { animation: inv-ventana 7s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+:root[data-motion="on"] .inv-activa .inv-cursor { animation: inv-cursor 7s ease-in-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-onda-1 { animation: inv-onda-1 7s ease-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-onda-p { animation: inv-onda-p 7s ease-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-onda-s { animation: inv-onda-s 7s ease-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-onda-g { animation: inv-onda-g 7s ease-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-anillo-p { animation: inv-anillo-p 7s linear infinite; }
+:root[data-motion="on"] .inv-activa .inv-anillo-s { animation: inv-anillo-s 7s linear infinite; }
+:root[data-motion="on"] .inv-activa .inv-ant-p { animation: inv-ant-p 7s linear infinite; }
+:root[data-motion="on"] .inv-activa .inv-ch { animation: inv-ch 7s linear infinite; animation-delay: calc(var(--i) * 0.105s); }
+:root[data-motion="on"] .inv-activa .inv-ch::after { animation: inv-caret 7s linear infinite; animation-delay: calc(var(--i) * 0.105s); }
+:root[data-motion="on"] .inv-activa .inv-ch:last-child::after { animation: inv-caret-fin 7s linear infinite; animation-delay: calc(var(--i) * 0.105s); }
+:root[data-motion="on"] .inv-activa .inv-arriba-s { animation: inv-arriba-s 7s ease-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-ant-s { animation: inv-ant-s 7s linear infinite; }
+:root[data-motion="on"] .inv-activa .inv-nuevo-s { animation: inv-nuevo-s 7s ease-out infinite; }
+:root[data-motion="on"] .inv-activa .inv-guardar { animation: inv-guardar 7s linear infinite; }
 
-/* Imagen de clientes animada (ClienteAnimado), bucle de 8 s: cursor, clic en el ojo, detalle que se despliega,
+/* Imagen de clientes animada (ClienteAnimado), bucle de 5 s: el cursor aparece pegado al botón (casi sin deslizarse), clic en el ojo, detalle que se despliega,
    clic en "Cerrar" y cierre. Quieta con "reducir movimiento" (el detalle queda abierto); con ?motion=on se fuerza. */
 .cli-onda {
   width: 4.2cqw;
@@ -390,42 +390,45 @@ body {
   filter: drop-shadow(0 2px 3px rgba(23, 18, 47, 0.4));
 }
 @keyframes cli-ventana {
-  0%, 21.3% { opacity: 0; transform: translateY(-1.6cqw) scale(0.88); }
-  28.8%, 71.3% { opacity: 1; transform: none; }
-  76.3%, 100% { opacity: 0; transform: translateY(1cqw) scale(0.96); }
+  0%, 13.5% { opacity: 0; transform: translateY(-1.6cqw) scale(0.88); }
+  22.5%, 66% { opacity: 1; transform: none; }
+  72%, 100% { opacity: 0; transform: translateY(1cqw) scale(0.96); }
 }
+/* El cursor casi no se desliza: aparece pegado al botón, hace clic y se va. Lo mismo con "Cerrar". */
 @keyframes cli-cursor {
-  0% { opacity: 0; transform: translate(9cqw, -8cqw); }
-  5% { opacity: 1; }
-  16.3% { opacity: 1; transform: translate(0, 0); }
-  19% { opacity: 1; transform: scale(0.82); }
-  21.3% { opacity: 1; transform: scale(1); }
-  50% { opacity: 1; transform: translate(0, 0); }
-  65% { opacity: 1; transform: translate(3.38cqw, 36.75cqw); }
-  68.5% { opacity: 1; transform: translate(3.38cqw, 36.75cqw) scale(0.82); }
-  71% { opacity: 1; transform: translate(3.38cqw, 36.75cqw) scale(1); }
-  76%, 100% { opacity: 0; transform: translate(3.38cqw, 36.75cqw); }
+  0% { opacity: 0; transform: translate(3cqw, -3cqw); }
+  3% { opacity: 1; transform: translate(3cqw, -3cqw); }
+  10% { opacity: 1; transform: translate(0, 0); }
+  12% { opacity: 1; transform: scale(0.82); }
+  15% { opacity: 1; transform: scale(1); }
+  17%, 52% { opacity: 0; transform: translate(0, 0); }
+  53% { opacity: 0; transform: translate(6.38cqw, 33.75cqw); }
+  56% { opacity: 1; transform: translate(6.38cqw, 33.75cqw); }
+  61% { opacity: 1; transform: translate(3.38cqw, 36.75cqw); }
+  63.5% { opacity: 1; transform: translate(3.38cqw, 36.75cqw) scale(0.82); }
+  66% { opacity: 1; transform: translate(3.38cqw, 36.75cqw) scale(1); }
+  69%, 100% { opacity: 0; transform: translate(3.38cqw, 36.75cqw); }
 }
 @keyframes cli-onda-1 {
-  0%, 18.7% { opacity: 0; transform: scale(0.3); }
-  19% { opacity: 0.7; transform: scale(0.3); }
-  26%, 100% { opacity: 0; transform: scale(1.6); }
+  0%, 11.8% { opacity: 0; transform: scale(0.3); }
+  12% { opacity: 0.7; transform: scale(0.3); }
+  19%, 100% { opacity: 0; transform: scale(1.6); }
 }
 @keyframes cli-onda-2 {
-  0%, 66.2% { opacity: 0; transform: scale(0.3); }
-  66.5% { opacity: 0.7; transform: scale(0.3); }
-  73%, 100% { opacity: 0; transform: scale(1.6); }
+  0%, 63.3% { opacity: 0; transform: scale(0.3); }
+  63.5% { opacity: 0.7; transform: scale(0.3); }
+  70%, 100% { opacity: 0; transform: scale(1.6); }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .cli-activa .cli-ventana { animation: cli-ventana 6s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
-  .cli-activa .cli-cursor { animation: cli-cursor 6s ease-in-out infinite; }
-  .cli-activa .cli-onda-1 { animation: cli-onda-1 6s ease-out infinite; }
-  .cli-activa .cli-onda-2 { animation: cli-onda-2 6s ease-out infinite; }
+  .cli-activa .cli-ventana { animation: cli-ventana 5s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+  .cli-activa .cli-cursor { animation: cli-cursor 5s ease-out infinite; }
+  .cli-activa .cli-onda-1 { animation: cli-onda-1 5s ease-out infinite; }
+  .cli-activa .cli-onda-2 { animation: cli-onda-2 5s ease-out infinite; }
 }
-:root[data-motion="on"] .cli-activa .cli-ventana { animation: cli-ventana 6s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
-:root[data-motion="on"] .cli-activa .cli-cursor { animation: cli-cursor 6s ease-in-out infinite; }
-:root[data-motion="on"] .cli-activa .cli-onda-1 { animation: cli-onda-1 6s ease-out infinite; }
-:root[data-motion="on"] .cli-activa .cli-onda-2 { animation: cli-onda-2 6s ease-out infinite; }
+:root[data-motion="on"] .cli-activa .cli-ventana { animation: cli-ventana 5s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+:root[data-motion="on"] .cli-activa .cli-cursor { animation: cli-cursor 5s ease-out infinite; }
+:root[data-motion="on"] .cli-activa .cli-onda-1 { animation: cli-onda-1 5s ease-out infinite; }
+:root[data-motion="on"] .cli-activa .cli-onda-2 { animation: cli-onda-2 5s ease-out infinite; }
 
 /* Contador de la oferta (ContadorOferta): el número que cambia entra desde arriba. */
 @keyframes cd-cambia {
@@ -740,3 +743,68 @@ body {
     animation-play-state: paused;
   }
 }
+
+/* Imagen de métodos de pago animada (PagosAnimado), bucle de 7 s: Mercado Pago se conecta y la venta en cuotas se activa, una tarjeta después de la otra, en azul oscuro.
+   El cursor no se desliza: aparece pegado al botón o a la casilla. Quieta con "reducir movimiento" (queda todo activo); con ?motion=on se fuerza. */
+.pg-onda { width: 4.2cqw; height: 4.2cqw; margin: -2.1cqw 0 0 -2.1cqw; border: 2px solid #17122f; opacity: 0; }
+.pg-cursor { width: 2.8cqw; height: 2.8cqw; margin: -0.4cqw 0 0 -0.5cqw; opacity: 0; filter: drop-shadow(0 2px 3px rgba(23, 18, 47, 0.4)); }
+@keyframes pg-on-a { 0%, 12.86% { opacity: 0; } 17.86%, 100% { opacity: 1; } }
+@keyframes pg-onda-a { 0%, 11.14% { opacity: 0; transform: scale(0.3); } 11.29% { opacity: 0.7; transform: scale(0.3); } 21.43%, 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes pg-on-b { 0%, 41.43% { opacity: 0; } 46.43%, 100% { opacity: 1; } }
+@keyframes pg-onda-b { 0%, 39.71% { opacity: 0; transform: scale(0.3); } 39.86% { opacity: 0.7; transform: scale(0.3); } 50%, 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes pg-cursor { 0%, 2.86% { opacity: 0; transform: translate(3cqw, -3cqw) scale(1); } 4.57% { opacity: 1; transform: translate(3cqw, -3cqw) scale(1); } 7.86% { opacity: 1; transform: translate(0, 0) scale(1); } 10.29% { opacity: 1; transform: translate(0, 0) scale(0.82); } 13.14% { opacity: 1; transform: translate(0, 0) scale(1); } 15.71%, 29.29% { opacity: 0; transform: translate(0, 0) scale(1); } 30% { opacity: 0; transform: translate(-52.60cqw, 12.33cqw) scale(1); } 32.14% { opacity: 1; transform: translate(-52.60cqw, 12.33cqw) scale(1); } 35.71% { opacity: 1; transform: translate(-55.60cqw, 15.33cqw) scale(1); } 38.86% { opacity: 1; transform: translate(-55.60cqw, 15.33cqw) scale(0.82); } 41.71% { opacity: 1; transform: translate(-55.60cqw, 15.33cqw) scale(1); } 44.29%, 100% { opacity: 0; transform: translate(-55.60cqw, 15.33cqw) scale(1); } }
+@keyframes pg-fin { 0%, 85.71% { opacity: 1; } 94.29%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  .pg-activa .pg-on-a { animation: pg-on-a 7s ease-out infinite; }
+  .pg-activa .pg-onda-a { animation: pg-onda-a 7s ease-out infinite; }
+  .pg-activa .pg-on-b { animation: pg-on-b 7s ease-out infinite; }
+  .pg-activa .pg-onda-b { animation: pg-onda-b 7s ease-out infinite; }
+  .pg-activa .pg-cursor { animation: pg-cursor 7s ease-out infinite; }
+  .pg-activa .pg-graf { animation: pg-fin 7s linear infinite; }
+}
+:root[data-motion="on"] .pg-activa .pg-on-a { animation: pg-on-a 7s ease-out infinite; }
+:root[data-motion="on"] .pg-activa .pg-onda-a { animation: pg-onda-a 7s ease-out infinite; }
+:root[data-motion="on"] .pg-activa .pg-on-b { animation: pg-on-b 7s ease-out infinite; }
+:root[data-motion="on"] .pg-activa .pg-onda-b { animation: pg-onda-b 7s ease-out infinite; }
+:root[data-motion="on"] .pg-activa .pg-cursor { animation: pg-cursor 7s ease-out infinite; }
+:root[data-motion="on"] .pg-activa .pg-graf { animation: pg-fin 7s linear infinite; }
+
+/* Toque (tap) y ondas, compartidos por las escenas vivas */
+.eg-toque { position: absolute; width: calc(var(--u) * 64); height: calc(var(--u) * 64); border-radius: 9999px; background: rgba(108, 79, 212, 0.35); border: calc(var(--u) * 3) solid rgba(108, 79, 212, 0.75); opacity: 0; pointer-events: none; }
+
+/* Ondas del toque: dos anillos que se expanden desde el punto tocado (una vez por bucle; `--ini` y `--dur` los pone cada escena). */
+.eg-anillo { position: absolute; width: calc(var(--u) * 64); height: calc(var(--u) * 64); transform: translate(-50%, -50%); pointer-events: none; }
+.eg-anillo::before, .eg-anillo::after { content: ""; position: absolute; inset: 0; border-radius: 9999px; border: calc(var(--u) * 3) solid rgba(108, 79, 212, 0.6); opacity: 0; transform: scale(0.55); }
+@keyframes eg-anillo { 0% { opacity: 0; transform: scale(0.55); } 1.2% { opacity: 0.8; transform: scale(0.7); } 10%, 100% { opacity: 0; transform: scale(2.3); } }
+
+/* ===== POR MAYOR Y POR MENOR (em-): bucle de 12 s, compra mínima por monto ($ 130.000). Reposo = mínimo cumplido. ===== */
+@keyframes em-q0 { 0%, 8% { opacity: 0; } 10%, 27.4% { opacity: 1; } 28.4%, 100% { opacity: 0; } }
+@keyframes em-q1 { 0%, 27.4% { opacity: 0; } 28.4%, 43.4% { opacity: 1; } 44.4%, 100% { opacity: 0; } }
+@keyframes em-q2 { 0%, 8% { opacity: 1; } 10%, 43.4% { opacity: 0; } 44.4%, 100% { opacity: 1; } }
+@keyframes em-barra { 0%, 8% { transform: scaleX(1); } 10%, 27.4% { transform: scaleX(0.6); } 28.4%, 43.4% { transform: scaleX(0.8); } 44.4%, 100% { transform: scaleX(1); } }
+@keyframes em-boton { 0%, 8% { opacity: 1; } 10%, 43.4% { opacity: 0; } 44.4%, 100% { opacity: 1; } }
+@keyframes em-aviso { 0%, 8% { opacity: 1; transform: none; } 10%, 48% { opacity: 0; transform: translateY(14px) scale(0.95); } 53%, 100% { opacity: 1; transform: none; } }
+@keyframes em-ta { 0%, 26% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); } 27.2% { opacity: 0.85; transform: translate(-50%, -50%) scale(0.8); } 28.2% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); } 30%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); } }
+@keyframes em-tb { 0%, 42% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); } 43.2% { opacity: 0.85; transform: translate(-50%, -50%) scale(0.8); } 44.2% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); } 46%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); } }
+@media (prefers-reduced-motion: no-preference) {
+  .em-activa .em-q0 { animation: em-q0 12s linear infinite; }
+  .em-activa .em-q1 { animation: em-q1 12s linear infinite; }
+  .em-activa .em-q2 { animation: em-q2 12s linear infinite; }
+  .em-activa .em-barra { animation: em-barra 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .em-activa .em-boton { animation: em-boton 12s linear infinite; }
+  .em-activa .em-aviso { animation: em-aviso 12s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+  .em-activa .em-ta { animation: em-ta 12s ease-out infinite; }
+  .em-activa .em-tb { animation: em-tb 12s ease-out infinite; }
+  .em-activa .eg-anillo::before { animation: eg-anillo var(--dur) ease-out var(--ini) infinite; }
+  .em-activa .eg-anillo::after { animation: eg-anillo var(--dur) ease-out calc(var(--ini) + 0.16s) infinite; }
+}
+:root[data-motion="on"] .em-activa .em-q0 { animation: em-q0 12s linear infinite; }
+:root[data-motion="on"] .em-activa .em-q1 { animation: em-q1 12s linear infinite; }
+:root[data-motion="on"] .em-activa .em-q2 { animation: em-q2 12s linear infinite; }
+:root[data-motion="on"] .em-activa .em-barra { animation: em-barra 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+:root[data-motion="on"] .em-activa .em-boton { animation: em-boton 12s linear infinite; }
+:root[data-motion="on"] .em-activa .em-aviso { animation: em-aviso 12s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+:root[data-motion="on"] .em-activa .em-ta { animation: em-ta 12s ease-out infinite; }
+:root[data-motion="on"] .em-activa .em-tb { animation: em-tb 12s ease-out infinite; }
+:root[data-motion="on"] .em-activa .eg-anillo::before { animation: eg-anillo var(--dur) ease-out var(--ini) infinite; }
+:root[data-motion="on"] .em-activa .eg-anillo::after { animation: eg-anillo var(--dur) ease-out calc(var(--ini) + 0.16s) infinite; }

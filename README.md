@@ -12,7 +12,7 @@ Portada · Funciones Premium (con las animaciones en vivo) · Todo lo del Básic
 
 - Colores: `src/index.css` (`@theme`). Fondos `night`, `night-2`, `night-3`; textos `snow`, `snow-soft`, `snow-muted`.
 - Textos de las funciones Premium: `src/lib/funcionesPremium.js`. Los marcados «propuesta» esperan aprobación.
-- Imágenes de las funciones: `src/assets/premium/premium-1` a `premium-7` (se generan en la landing original con `herramientas/premium-imagenes/generar.py`). Las animaciones están en `src/components/*Animado.jsx` y su CSS en `src/index.css`.
+- Imágenes de las funciones: `src/assets/premium/premium-1` a `premium-6` (se generan en la landing original con `herramientas/premium-imagenes/generar.py`). Las animaciones están en `src/components/*Animado.jsx` y su CSS en `src/index.css`.
 - Precios y links: `src/lib/planes.js`. `PREMIUM_LINK` abre un WhatsApp; falta el link real de suscripción de MercadoPago (TODO).
 - Tiendas Premium de ejemplo: todavía no hay. Cuando existan, se suma una sección como la de Tiendas de la landing original.
 
