@@ -5,8 +5,9 @@ import BarraMensajes from "./BarraMensajes"
 import InventarioAnimado from "./InventarioAnimado"
 import ClienteAnimado from "./ClienteAnimado"
 import MarketingAnimado from "./MarketingAnimado"
-import PagosAnimado from "./PagosAnimado"
+import EscenaPagos from "./escenas/EscenaPagos"
 import EscenaMayorista from "./escenas/EscenaMayorista"
+import EscenaPopup from "./escenas/EscenaPopup"
 import CarritoAnimado from "./CarritoAnimado"
 import Button from "./Button"
 import Tick from "./Tick"
@@ -34,6 +35,7 @@ const etiquetas = [
   "Tu venta",
   "Tus pagos",
   "Tu marketing",
+  "Tu ventana emergente",
 ]
 
 const funciones = funcionesPremium.map((f, i) => ({
@@ -41,11 +43,12 @@ const funciones = funcionesPremium.map((f, i) => ({
   n: i + 1,
   etiqueta: etiquetas[i],
   // la función 6 (mayorista o minorista) es una escena viva y no una imagen: las imágenes siguen la numeración sin ella
-  imagen: i === 5 ? undefined : fotoDe(i < 5 ? i + 1 : i),
-  escena: i === 5 ? <EscenaMayorista /> : undefined,
+  // (la 7, métodos de pago, y la 9, la ventana emergente al salir, también son escenas vivas)
+  imagen: i === 5 || i === 6 || i === 8 ? undefined : fotoDe(i < 5 ? i + 1 : i),
+  escena: i === 5 ? <EscenaMayorista /> : i === 6 ? <EscenaPagos /> : i === 8 ? <EscenaPopup /> : undefined,
   // el carrito (5) y los badges de Marketing (8) los dibuja la animación junto con la imagen
   superposicion:
-    i === 0 ? <BarraMensajes /> : i === 2 ? <ClienteAnimado /> : i === 3 ? <InventarioAnimado /> : i === 4 ? <CarritoAnimado /> : i === 6 ? <PagosAnimado /> : i === 7 ? <MarketingAnimado /> : undefined,
+    i === 0 ? <BarraMensajes /> : i === 2 ? <ClienteAnimado /> : i === 3 ? <InventarioAnimado /> : i === 4 ? <CarritoAnimado /> : i === 7 ? <MarketingAnimado /> : undefined,
 }))
 
 // Devuelve true mientras el elemento está a la vista (para que las animaciones corran solo ahí).

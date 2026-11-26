@@ -49,7 +49,7 @@ export default function PremiumPrecio() {
               Plan Premium
             </h3>
 
-            <div className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <div key={`precio-${anual}`} className="cambio-precio mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <p className="text-[44px] font-extrabold leading-none">
                 {peso(anual ? premium.anual / 12 : premium.mensual)}
                 <span className="text-lg font-bold text-ink-soft">/mes</span>
@@ -60,7 +60,7 @@ export default function PremiumPrecio() {
                 </p>
               )}
             </div>
-            <p className="mt-2 text-[15px] font-bold text-primary">
+            <p key={`nota-${anual}`} className="cambio-precio mt-2 text-[15px] font-bold text-primary">
               {anual
                 ? `Pagás ${peso(premium.anual)} una vez al año · ahorrás ${peso(premium.mensual * 12 - premium.anual)}`
                 : premium.commitment}

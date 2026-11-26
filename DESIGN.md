@@ -164,5 +164,8 @@ GSAP (`src/lib/motion.js`) y CSS. Con "reducir movimiento" todo queda quieto y v
 | Encender el halo del banner | Opacidad 0 → 1 en 1 s · `ease-out` |
 | Marquesina de la barra promocional | `translateX(-50%)` · 18 s · lineal · infinita |
 | Toque (tap) | Círculo violeta que se achica + dos ondas que se expanden; interacción con toques, no con mouse |
+| Escena "Vendé mayorista o minorista" (`em-`) | Bucle de 12 s mientras está a la vista · el carrito suma de 3 a 5 unidades, la barra de compra mínima se completa y se habilita "Finalizar Compra" · reposo = mínimo cumplido |
+| Imagen "Métodos de pago" (`pg-`) | Bucle de 7 s · el cursor aparece pegado al botón, hace clic y cada tarjeta Premium (Mercado Pago, venta en cuotas) se activa en azul oscuro · reposo = todo activo |
+| Escena "Ventana emergente al salir" (`pop-`) | Bucle de 9 s · el mouse sube hacia la barra del navegador, aparece la ventana, un toque en "Volver al carrito" la cierra y se recupera la venta · reposo = ventana abierta |
 
 Reglas: un solo movimiento principal por escena; entrar subiendo, nunca girar ni rebotar; reposo = estado final legible. Importante: GSAP anula el `translate` de Tailwind en los elementos con `data-flota`, así que esos elementos se centran con `inset-x-0 mx-auto` y no con `-translate-x-1/2`.
