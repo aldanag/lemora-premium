@@ -2,10 +2,10 @@ import { useRef, useState } from "react"
 import { useReveal } from "../lib/motion"
 import Button from "../components/Button"
 import LinkTexto from "../components/LinkTexto"
-import Segmented from "../components/Segmented"
 import CrownIcon from "../components/CrownIcon"
 import Tick from "../components/Tick"
 import { anualLink, PREMIUM_LINK, peso, plans, WHATSAPP_TRIAL_LINK } from "../lib/planes"
+import { INSIGNIA } from "../lib/pastillas"
 
 const premium = plans.find((p) => p.name === "Premium")
 
@@ -35,24 +35,44 @@ export default function PremiumPrecio() {
           </p>
         </div>
 
-        <div className="sticky top-[4.5rem] z-30 mt-8 flex justify-center bg-night/90 py-2 backdrop-blur md:static md:bg-transparent md:py-0 md:backdrop-blur-none">
-          <Segmented label="Período de pago" tone="dark" value={anual} onChange={setAnual} options={opciones} />
-        </div>
-
         <div
           data-reveal
-          className="mx-auto mt-8 grid max-w-4xl gap-6 rounded-3xl bg-white p-5 text-ink ring-[3px] ring-accent sm:p-7 md:grid-cols-[1.15fr_1fr]"
+          className="mx-auto mt-8 grid max-w-4xl gap-6 rounded-3xl bg-white p-5 text-ink ring-[3px] ring-accent sm:p-7 md:grid-cols-[0.8fr_1fr]"
         >
-          <div className="flex flex-col">
-            <h3 className="flex items-center gap-2 text-xl font-extrabold">
+          <div className="flex flex-col items-center text-center">
+            <h3 className="flex items-center justify-center gap-2 text-lg font-extrabold">
               <CrownIcon className="h-5 w-5 text-primary" />
               Plan Premium
             </h3>
 
-            <div key={`precio-${anual}`} className="cambio-precio mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-              <p className="text-[44px] font-extrabold leading-none">
+            <div className="mt-4">
+              <div
+                role="group"
+                aria-label="Período de pago"
+                className="inline-flex flex-none rounded-full bg-primary-tint p-1 ring-1 ring-ink/10"
+              >
+                {opciones.map((op) => (
+                  <button
+                    key={op.label}
+                    type="button"
+                    aria-pressed={anual === op.id}
+                    onClick={() => setAnual(op.id)}
+                    className={`flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[13px] font-semibold transition-colors duration-300 focus-ring motion-reduce:transition-none ${
+                      anual === op.id ? (op.id ? "bg-primary text-white" : "bg-ink text-white") : "text-ink-soft hover:text-ink"
+                    }`}
+                  >
+                    {op.label}
+                    {op.badge && <span className={INSIGNIA}>{op.badge}</span>}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+
+            <div key={`precio-${anual}`} className="cambio-precio mt-5 flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+              <p className="text-[36px] font-extrabold leading-none">
                 {peso(anual ? premium.anual / 12 : premium.mensual)}
-                <span className="text-lg font-bold text-ink-soft">/mes</span>
+                <span className="text-base font-bold text-ink-soft">/mes</span>
               </p>
               {anual && (
                 <p className="text-sm font-semibold text-ink-muted line-through decoration-2">
@@ -66,18 +86,17 @@ export default function PremiumPrecio() {
                 : premium.commitment}
             </p>
 
-            <p className="mt-4 text-sm font-semibold text-ink-soft">
-              Si ya tenés el plan Básico, pasás a Premium desde el panel o escribiéndonos, y
-              actualizamos tu plan en el día.
+            <p className="mt-4 text-balance text-sm font-semibold text-ink-soft">
+              Si ya tenés el plan Básico, pasás a Premium desde el panel o escribiéndonos.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3 md:mt-auto md:pt-6">
-              <Button href={anual ? anualLink("Premium") : PREMIUM_LINK} external className="w-full md:w-fit md:self-start md:px-10">
+            <div className="mt-6 flex w-full flex-col gap-3 md:mt-auto">
+              <Button href={anual ? anualLink("Premium") : PREMIUM_LINK} external block>
                 {anual ? "Suscribirme al plan anual" : "Suscribirme a Premium"}
               </Button>
-              <p className="text-center text-sm text-ink-soft md:text-left">
+              <p className="text-balance text-center text-sm text-ink-soft">
                 ¿Querés probar primero?{" "}
-                <LinkTexto href={WHATSAPP_TRIAL_LINK} external>
+                <LinkTexto href={WHATSAPP_TRIAL_LINK} external className="whitespace-nowrap">
                   Empezá con 1 mes gratis del Básico
                 </LinkTexto>
               </p>
@@ -90,7 +109,7 @@ export default function PremiumPrecio() {
               {premium.features.map((f) => (
                 <li
                   key={f.text}
-                  className={`flex items-center gap-2.5 text-sm ${f.isNew ? "font-bold" : ""}`}
+                  className={`flex items-center gap-2.5 text-pretty text-sm ${f.isNew ? "font-bold" : ""}`}
                 >
                   <Tick />
                   {f.text}
