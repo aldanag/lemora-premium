@@ -43,6 +43,9 @@ export default function PremiumComparar() {
               {peso(basico.mensual)}
               <span className="text-base font-bold text-snow-soft">/mes</span>
             </p>
+            <p className="mt-1 text-sm font-semibold text-lavender">
+              o {peso(basico.anual / 12)}/mes con el plan anual ({peso(basico.anual)} al año)
+            </p>
             <p className="mt-1 text-sm text-snow-soft">Ideal para empezar a vender online.</p>
             <ul className="mt-4 space-y-2">
               {conBasico.map((t) => (
@@ -61,6 +64,9 @@ export default function PremiumComparar() {
             <p className="mt-2 text-[28px] font-extrabold text-ink">
               {peso(premium.mensual)}
               <span className="text-base font-bold text-ink-soft">/mes</span>
+            </p>
+            <p className="mt-1 text-sm font-semibold text-lavender">
+              o {peso(premium.anual / 12)}/mes con el plan anual ({peso(premium.anual)} al año)
             </p>
             <p className="mt-1 text-sm text-ink-soft">{premium.commitment}.</p>
             <ul className="mt-4 space-y-2">
