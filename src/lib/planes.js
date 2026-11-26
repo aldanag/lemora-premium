@@ -32,7 +32,7 @@ export const plans = [
     name: "Básico",
     badge: "1 mes gratis",
     mensual: 12490,
-    anual: 124900,
+    anual: 124788,
     commitment: "Contratación mínima: 1 mes",
     features: [
       "Cargá productos o servicios ilimitados",
@@ -53,7 +53,7 @@ export const plans = [
     name: "Premium",
     crown: true,
     mensual: 18990,
-    anual: 189900,
+    anual: 189588,
     commitment: "Contratación mínima: 3 meses",
     intro: "Todo lo del plan Básico y además:",
     features: [
