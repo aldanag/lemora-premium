@@ -11,7 +11,7 @@ const premium = plans.find((p) => p.name === "Premium")
 
 const opciones = [
   { id: false, label: "Mensual" },
-  { id: true, label: "Anual", badge: "Ahorrá 11%" },
+  { id: true, label: "Anual", badge: "Ahorrá 17%" },
 ]
 
 export default function PremiumPrecio() {
