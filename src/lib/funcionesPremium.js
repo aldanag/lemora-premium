@@ -49,9 +49,11 @@ export const funcionesPremium = [
     puntos: [
       "Modo promociones: Black Friday, Hot Sale, CyberMonday o el tuyo.",
       "Ofertas con cuenta regresiva, producto por producto.",
+      "Descuentos por cantidad en cada producto: Comprá más y ahorrá.",
       "Notificación de confianza cuando alguien compra.",
+      "Pixel de Meta para medir tus anuncios.",
     ],
-    etiquetaImagen: "La tienda con su badge de promoción, la oferta con cuenta regresiva y la notificación de confianza",
+    etiquetaImagen: "La tienda con su badge de promoción, la oferta con cuenta regresiva, el descuento por cantidad y la notificación de confianza",
   },
   {
     titulo: "Ventana emergente al salir",
